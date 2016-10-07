@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/BaseMap01.png</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment00_00.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment00_01.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment00_02.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment00_03.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment00_04.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment01_00.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment01_01.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment01_02.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment01_03.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment01_04.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment02_00.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment02_01.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment02_02.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment02_03.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/MapFragment02_04.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/Grass.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/Highland.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/Water.jpg</File>
+    <File>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/Ice.jpg</File>
+  </SourceFiles>
+</SourceFileCollection>

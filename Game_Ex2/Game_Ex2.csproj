@@ -38,9 +38,20 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
+    <Compile Include="GameEntity.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="EntityInvisible.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="MapScrolling.cs" />
+    <Compile Include="MapTiling.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="MouseManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ModelSprite2D.cs" />
+    <Compile Include="TextureManagement.cs" />
+    <Compile Include="EntityVisible.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
