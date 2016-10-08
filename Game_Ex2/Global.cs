@@ -23,11 +23,11 @@ namespace Game_Ex2
 
         private static Vector2 _Velocity_Zero;
         private static Vector2 _Accelerator;
-        private static float _K1 = 2;
-        private static float _K2 = 0.01f;
+        private static float _K1 = 1;
+        private static float _K2 = 0.05f;
         private static float _Epsilon = 0.01f;
 
-
+        //------------------------------ MOUSE STATE ------------------------------
 
         public static bool Is_LeftMouse_Click_Begin()
         {
@@ -39,6 +39,13 @@ namespace Game_Ex2
             return _MouseManagement.Is_LeftClickEnd();
         }
 
+        public static bool Is_LeftMouse_Pressed()
+        {
+            return _MouseManagement.Is_LeftPressed();
+        }
+
+
+        //------------------------------ DRAG ------------------------------
 
         public static bool IsDragging()
         {
@@ -50,11 +57,22 @@ namespace Game_Ex2
             _bDrag = true;
         }
 
+        public static void Drag()
+        {
+            _DifferenceVector = _MouseManagement.GetMousePositionDifference();
+            _TextureManagement.TranslateBaseMap(_DifferenceVector);
+        }
+
         public static void EndDragging()
         {
+            _DifferenceVector = _MouseManagement.GetMousePositionDifference();
+            _TextureManagement.TranslateBaseMap(_DifferenceVector);
+            _BackupDifferenceVector = _DifferenceVector;
             _bDrag = false;
         }
 
+
+        //------------------------------ FLOAT ------------------------------
 
         public static bool IsFloating()
         {
@@ -81,13 +99,14 @@ namespace Game_Ex2
             if(IsEpsilon())
                 _bFloat = false;
         }
-
         
         private static bool IsEpsilon()
         {
             return _Velocity_Zero.Length() <= _Epsilon;
         }
 
+
+        //------------------------------ GENERAL ------------------------------
 
         public static void LoadTilingMap()
         {
@@ -97,6 +116,7 @@ namespace Game_Ex2
 
         public static void UpdateEntityInvisible(GameTime gameTime)
         {
+            _Camera.Update(gameTime);
             _MouseManagement.Update(gameTime);
         }
 
@@ -109,15 +129,6 @@ namespace Game_Ex2
         {
             _TextureManagement.DrawTexture(gameTime, spriteBatch);
         }
-
-
-        public static void Drag()
-        {
-            _DifferenceVector = _MouseManagement.GetMousePositionDifference();
-            _TextureManagement.TranslateBaseMap(_DifferenceVector);
-            _BackupDifferenceVector = _DifferenceVector;
-        }
-
 
         public static void Translate(Vector2 vector)
         {

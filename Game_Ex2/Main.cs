@@ -66,8 +66,6 @@ namespace Game_Ex2
                 Exit();
 
             // TODO: Add your update logic here
-            //Global._TextureManagement.UpdateTexture(gameTime);
-            //Global._MouseManagement.Update(gameTime);
             Global.UpdateEntityInvisible(gameTime);
 
             // Start dragging - Start clicking Left Mouse
@@ -76,13 +74,18 @@ namespace Game_Ex2
                 Global.BeginDragging();
                 Global.NotFloatedYet();
             }
-            // Stop dragging - Stop clicking Left Mouse
-            else if(Global.Is_LeftMouse_Click_End() && Global.IsDragging())
+            // Dragging - Press Left Mouse
+            else if (Global.Is_LeftMouse_Pressed() && Global.IsDragging())
             {
                 Global.Drag();
+            }
+            // Stop dragging - Stop clicking Left Mouse -> Begin Floating
+            else if(Global.Is_LeftMouse_Click_End() && Global.IsDragging())
+            {
                 Global.EndDragging();
                 Global.BeginFloating();
-            }
+            }           
+            // Stop Floating
             else if(Global.IsFloating())
             {
                 Global.EndFloating();

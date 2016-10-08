@@ -25,6 +25,11 @@ namespace Game_Ex2
                     _CurrentState.LeftButton == ButtonState.Released);
         }
 
+        public bool Is_LeftPressed()
+        {
+            return (_CurrentState.LeftButton == ButtonState.Pressed);
+        }
+
 
         public override void Update(GameTime gameTime)
         {
