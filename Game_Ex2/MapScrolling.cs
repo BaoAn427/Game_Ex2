@@ -17,6 +17,7 @@ namespace Game_Ex2
         protected int _nCol;
         protected int _Left;
         protected int _Top;
+        protected float _Scale;
 
         public MapScrolling() { }
 
@@ -68,6 +69,13 @@ namespace Game_Ex2
         private bool IsVisible(int i, int j)
         {
             return true;
+        }
+
+        internal void Translate(Vector2 vector)
+        {
+            _Left += (int)vector.X;
+            _Top += (int)vector.Y;
+            Global.Translate(vector);
         }
     }
 }

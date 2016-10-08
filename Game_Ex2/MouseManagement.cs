@@ -43,5 +43,11 @@ namespace Game_Ex2
         {
             return _CurrentState.Y;
         }
+
+
+        public Vector2 GetMousePositionDifference()
+        {
+            return new Vector2(_CurrentState.X - _PreviousState.X, _CurrentState.Y - _PreviousState.Y);
+        }
     }
 }

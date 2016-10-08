@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Camera2D.cs" />
     <Compile Include="GameEntity.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="EntityInvisible.cs" />

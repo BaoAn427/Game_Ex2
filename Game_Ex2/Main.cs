@@ -40,9 +40,10 @@ namespace Game_Ex2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             // TODO: use this.Content to load your game content here
-            Global._Content = this.Content;
-            Global._TextureManagement.LoadTilingMap("BaseMap01");
+            this.IsMouseVisible = true;
 
+            Global._Content = this.Content;
+            Global.LoadTilingMap();
         }
 
         /// <summary>
@@ -65,7 +66,29 @@ namespace Game_Ex2
                 Exit();
 
             // TODO: Add your update logic here
-            Global._TextureManagement.UpdateTexture(gameTime);
+            //Global._TextureManagement.UpdateTexture(gameTime);
+            //Global._MouseManagement.Update(gameTime);
+            Global.UpdateEntityInvisible(gameTime);
+
+            // Start dragging - Start clicking Left Mouse
+            if(Global.Is_LeftMouse_Click_Begin())
+            {
+                Global.BeginDragging();
+                Global.NotFloatedYet();
+            }
+            // Stop dragging - Stop clicking Left Mouse
+            else if(Global.Is_LeftMouse_Click_End() && Global.IsDragging())
+            {
+                Global.Drag();
+                Global.EndDragging();
+                Global.BeginFloating();
+            }
+            else if(Global.IsFloating())
+            {
+                Global.EndFloating();
+            }
+
+            Global.UpdateEntityVisible(gameTime);
             base.Update(gameTime);
         }
 
@@ -78,8 +101,9 @@ namespace Game_Ex2
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
-            Global._TextureManagement.DrawTexture(gameTime, spriteBatch);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Global._Camera.WVP);
+            //Global._TextureManagement.DrawTexture(gameTime, spriteBatch);
+            Global.Draw(gameTime, spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

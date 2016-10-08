@@ -31,7 +31,7 @@ namespace Game_Ex2
         public static List<Texture2D> LoadTextureForTilingMap(int height)
         {
             List<Texture2D> lTexture = new List<Texture2D>();
-            string strResourceName = "Grass";
+            string strResourceName = "Grass";   
 
             if (height < _HEIGHT_ICE)
                 strResourceName = "Water";
@@ -53,10 +53,10 @@ namespace Game_Ex2
 
         public void LoadTilingMap(string strBaseMap)
         {
-            MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, 64, 64);
+            float scale = 0.04f;
+            MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, 64, 64, scale);
             _lMapSrite.Add(mapTiling);
         } 
-
 
         public void DrawTexture(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -71,6 +71,12 @@ namespace Game_Ex2
             int n = _lMapSrite.Count;
             for (int i = 0; i < n; ++i)
                 _lMapSrite[i].Update(gameTime);
+        }
+
+
+        public void TranslateBaseMap(Vector2 vector)
+        {
+            ((MapTiling)_lMapSrite[0]).Translate(vector);
         }
      }
 }

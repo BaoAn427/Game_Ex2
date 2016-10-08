@@ -13,7 +13,7 @@ namespace Game_Ex2
         private string _NameBaseMap;
 
 
-        public MapTiling(string strBaseMap, int left, int top, int fragmentWidth, int fragmentHeight)
+        public MapTiling(string strBaseMap, int left, int top, int fragmentWidth, int fragmentHeight, float scale)
         {
             _MainModel = null;
             _NameBaseMap = strBaseMap;
@@ -21,6 +21,7 @@ namespace Game_Ex2
             _Top = top;
             _FragmentWidth = fragmentWidth;
             _FragmentHeight = fragmentHeight;
+            _Scale = scale;
             GenerateHeightFragment();
             CreateListMapFragment();
         }
@@ -34,8 +35,8 @@ namespace Game_Ex2
                 for (int j = 0; j < _nCol; ++j)
                 {
                     _lFragment[i, j] = new ModelSprite2D(_Name, TextureManagement.LoadTextureForTilingMap(_HeightFragment[i, j]),
-                                                        _Left + j * _FragmentWidth, _Top + i * _FragmentHeight,
-                                                        _FragmentWidth, _FragmentHeight, 0, 0);
+                                                        _Left + j * _FragmentWidth * _Scale, _Top + i * _FragmentHeight * _Scale,
+                                                        _FragmentWidth * _Scale, _FragmentHeight * _Scale, _Scale, 0);
                 }
             }
         }
@@ -61,6 +62,6 @@ namespace Game_Ex2
                 }
             }
         }
-
+        
     }
 }
