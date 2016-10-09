@@ -58,6 +58,20 @@ namespace Game_Ex2
             _TransZ = 0;
         }
 
+        internal void ZoomIn(Vector2 center, float scaleFactor)
+        {
+            _ScaleX = _ScaleY = scaleFactor;
+            _ScaleZ = 0;
+
+            _PreTranX = -center.X;
+            _PreTranY = -center.Y;
+            _PreTranZ = 0;
+
+            _TransX = center.X;
+            _TransY = center.Y;
+            _TransZ = 0;
+        }
+
 
         internal void Translate(float transX, float transY, int transZ)
         {

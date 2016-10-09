@@ -26,6 +26,9 @@ namespace Game_Ex2
         private static float _K1 = 1;
         private static float _K2 = 0.05f;
         private static float _Epsilon = 0.01f;
+        private static float _ScaleFactor = 1;
+        private static float _ScaleFactor_ZoomIn_Ratio = 0.5f;
+        private static float _ScaleFactor_ZoomOut_Ratio = 2f;
 
         //------------------------------ MOUSE STATE ------------------------------
 
@@ -45,6 +48,17 @@ namespace Game_Ex2
         }
 
 
+        public static bool Is_Scroll_Up()
+        {
+            return _MouseManagement.Is_ScrollUp();
+        }
+
+        public static bool Is_Scroll_Down()
+        {
+            return _MouseManagement.Is_ScrollDown();
+        }
+
+
         //------------------------------ DRAG ------------------------------
 
         public static bool IsDragging()
@@ -60,13 +74,13 @@ namespace Game_Ex2
         public static void Drag()
         {
             _DifferenceVector = _MouseManagement.GetMousePositionDifference();
-            _TextureManagement.TranslateBaseMap(_DifferenceVector);
+            _TextureManagement.TranslateBaseMap(_Camera, _DifferenceVector);
         }
 
         public static void EndDragging()
         {
             _DifferenceVector = _MouseManagement.GetMousePositionDifference();
-            _TextureManagement.TranslateBaseMap(_DifferenceVector);
+            _TextureManagement.TranslateBaseMap(_Camera, _DifferenceVector);
             _BackupDifferenceVector = _DifferenceVector;
             _bDrag = false;
         }
@@ -94,7 +108,7 @@ namespace Game_Ex2
         public static void EndFloating()
         {
             _DifferenceVector = _Velocity_Zero;
-            _TextureManagement.TranslateBaseMap(_DifferenceVector);
+            _TextureManagement.TranslateBaseMap(_Camera, _DifferenceVector);
             _Velocity_Zero += _Accelerator;
             if(IsEpsilon())
                 _bFloat = false;
@@ -103,6 +117,23 @@ namespace Game_Ex2
         private static bool IsEpsilon()
         {
             return _Velocity_Zero.Length() <= _Epsilon;
+        }
+
+
+        //------------------------------ ZOOM ------------------------------
+
+        public static void ZoomIn()
+        {
+            Vector2 center = new Vector2(_MouseManagement.GetCurrentX(), _MouseManagement.GetCurrentY());
+            _ScaleFactor *= _ScaleFactor_ZoomIn_Ratio;
+            _TextureManagement.ZoomBaseMap(_Camera, center, _ScaleFactor);
+        }
+
+        public static void ZoomOut()
+        {
+            Vector2 center = new Vector2(_MouseManagement.GetCurrentX(), _MouseManagement.GetCurrentY());
+            _ScaleFactor *= _ScaleFactor_ZoomOut_Ratio;
+            _TextureManagement.ZoomBaseMap(_Camera, center, _ScaleFactor);
         }
 
 
@@ -128,11 +159,6 @@ namespace Game_Ex2
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _TextureManagement.DrawTexture(gameTime, spriteBatch);
-        }
-
-        public static void Translate(Vector2 vector)
-        {
-            _Camera.Translate(vector);
         }
     }
 }

@@ -90,6 +90,16 @@ namespace Game_Ex2
             {
                 Global.EndFloating();
             }
+            // Content floats up
+            else if(Global.Is_Scroll_Up()) 
+            {
+                Global.ZoomOut();
+            }
+            // Content float down
+            else if(Global.Is_Scroll_Down())
+            {
+                Global.ZoomIn();
+            }
 
             Global.UpdateEntityVisible(gameTime);
             base.Update(gameTime);

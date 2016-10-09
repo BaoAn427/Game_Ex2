@@ -71,11 +71,16 @@ namespace Game_Ex2
             return true;
         }
 
-        internal void Translate(Vector2 vector)
+        internal void Translate(Camera2D camera, Vector2 vector)
         {
             _Left += (int)vector.X;
             _Top += (int)vector.Y;
-            Global.Translate(vector);
+            camera.Translate(vector);
+        }
+
+        internal void Zoom(Camera2D camera, Vector2 center, float scaleFactor)
+        {
+            camera.Zoom(center, scaleFactor);
         }
     }
 }

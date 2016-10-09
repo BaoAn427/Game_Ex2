@@ -31,6 +31,17 @@ namespace Game_Ex2
         }
 
 
+        public bool Is_ScrollUp()
+        {
+            return (_CurrentState.ScrollWheelValue < _PreviousState.ScrollWheelValue);
+        }
+
+        public bool Is_ScrollDown()
+        {
+            return (_CurrentState.ScrollWheelValue > _PreviousState.ScrollWheelValue);
+        }
+
+
         public override void Update(GameTime gameTime)
         {
             _PreviousState = _CurrentState;
