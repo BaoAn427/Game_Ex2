@@ -53,7 +53,7 @@ namespace Game_Ex2
 
         public void LoadTilingMap(string strBaseMap)
         {
-            float scale = 0.04f;
+            float scale = 1f;
             MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, 64, 64, scale);
             _lMapSrite.Add(mapTiling);
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/Highland.jpg</SourceFile>
-  <SourceTime>2016-09-28T09:09:12.0094043+07:00</SourceTime>
-  <DestFile>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/bin/Windows/Highland.xnb</DestFile>
-  <DestTime>2016-11-14T22:29:57.5628908+07:00</DestTime>
+  <SourceFile>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/ChompChomp_Right_01.png</SourceFile>
+  <SourceTime>2016-11-14T22:12:46.271225+07:00</SourceTime>
+  <DestFile>E:/SUBJECTS/NAM4_HK1/GAME/Assignment/Game_Ex2/Game_Ex2/Content/bin/Windows/ChompChomp_Right_01.xnb</DestFile>
+  <DestTime>2016-11-14T22:29:57.7082488+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-30T00:14:44+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

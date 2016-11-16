@@ -141,7 +141,7 @@ namespace Game_Ex2
 
         public static void LoadTilingMap()
         {
-            _TextureManagement.LoadTilingMap("BaseMap01");
+            _TextureManagement.LoadTilingMap("BaseMap02");
             _Camera._RotZ = 0;
         }
 
