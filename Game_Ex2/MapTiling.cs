@@ -36,7 +36,7 @@ namespace Game_Ex2
                 {
                     _lFragment[i, j] = new ModelSprite2D(_Name, TextureManagement.LoadTextureForTilingMap(_HeightFragment[i, j]),
                                                         _Left + j * _FragmentWidth * _Scale, _Top + i * _FragmentHeight * _Scale,
-                                                        _FragmentWidth * _Scale, _FragmentHeight * _Scale, _Scale, 0);
+                                                        _FragmentWidth * _Scale, _FragmentHeight * _Scale, _Scale, 0.9f);
                 }
             }
         }

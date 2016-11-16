@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Game_Ex2
 {
-    public class MapScrolling: Map
+    public class MapScrolling : Map
     {
         protected string _Name;
         protected ModelSprite2D[,] _lFragment;

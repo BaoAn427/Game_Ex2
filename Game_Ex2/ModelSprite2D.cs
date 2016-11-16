@@ -19,16 +19,11 @@ namespace Game_Ex2
         private float _Height;
         private float _Depth;
         private float _Scale;
-        private float _DELAY = 80;
-
-        private const int _MEDIUM_SIZE = 1;
-        private const int _SMALL_SIZE = 2;
-        private const int _NO_SIZE = 3;
-        private int _Size;
+        private float _DELAY = 120;
 
 
         public ModelSprite2D() { }
-
+        
         public ModelSprite2D(string name, List<Texture2D> lTexture, float left, float top, float width, float height, float scale, float depth)
         {
             _Name = name;
@@ -54,13 +49,31 @@ namespace Game_Ex2
             _Scale = scale;
 
             if (depth > 1)
-                _Depth = 0;
+                _Depth = 1;
+            else
+                _Depth = depth;
+        }
+
+        public ModelSprite2D(string name, List<Texture2D> lTexture, float left, float top, float scale, float depth, float side)
+        {
+            _Name = name;
+
+            _lTexture = lTexture;
+            _nTexture = _lTexture.Count;
+            _iTexture = 0;
+            
+            _Scale = scale;
+            if (depth > 1)
+                _Depth = 1;
             else
                 _Depth = depth;
 
-            _Size = _MEDIUM_SIZE;
-        }
+            _Width = _lTexture[0].Width * _Scale;
+            _Height = _lTexture[0].Height * _Scale;
 
+            _Left = left + (side / 2 - _Width / 2);
+            _Top = top + (side / 2 - _Height / 2);
+        }
 
 
         public override void Update(GameTime gameTime)

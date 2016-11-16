@@ -1,2 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Game_Ex2.EntityInvisible" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityInvisible.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.EntityVisible" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityVisible.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.GameEntity" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.Global" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iKEIAQIIACIgFgAAAECAAAAiAAQAkBHAAB4YAEEAAAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.Main" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAAAAAAAAAAgAAAAAAAAAAAQ=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.Map" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.MapScrolling" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAEhggEAAAIAAAAAACAQAAAEAEAAAQAAA=</HashCode>
+      <FileName>MapScrolling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.MapTiling" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAACAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>MapTiling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.Model" Collapsed="true">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.ModelSprite2D" Collapsed="true">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAIAAgggAIEAIAAgAAACAEAAAAAAAIAAABA=</HashCode>
+      <FileName>ModelSprite2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.MouseManagement" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAAACAAAAAAAAQABEAAAABBAAAAgAAAAAAAAAAAAQ=</HashCode>
+      <FileName>MouseManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.Program" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.TextureManagement" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAIgAAAAEAAAAAAEEABAgLAAABAAAACAAAA=</HashCode>
+      <FileName>TextureManagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game_Ex2.TextureChompChomp" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASEAAAAAAAQEgggAAAAIAEAAAACAAAAAAAAAIAAABQ=</HashCode>
+      <FileName>TextureChompChomp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

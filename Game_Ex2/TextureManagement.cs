@@ -14,11 +14,17 @@ namespace Game_Ex2
         //public ContentManager _Content;
 
         private List<EntityVisible> _lMapSrite = new List<EntityVisible>();
+        //private TextureChompChomp _ChompChomp;
+        private const int _SIDE_SQUARE_MAP = 64;
         private const int _HEIGHT_WATER = 0;
         private const int _HEIGHT_ICE = 122;
         private const int _HEIGHT_HIGHLAND = 131;
-        private const int _HEIGHT_GRASS = 222;
+        private const int _HEIGHT_GRASS = 222;        
 
+        public static int GetSideSquareMap()
+        {
+            return _SIDE_SQUARE_MAP;
+        }
 
         public static List<Texture2D> LoadTextureForScrollingMap(string strResourceName)
         {
@@ -54,8 +60,10 @@ namespace Game_Ex2
         public void LoadTilingMap(string strBaseMap)
         {
             float scale = 1f;
-            MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, 64, 64, scale);
+            MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, _SIDE_SQUARE_MAP, _SIDE_SQUARE_MAP, scale);
             _lMapSrite.Add(mapTiling);
+            TextureChompChomp ChompChomp = new TextureChompChomp(1, 1, 0, 0);
+            _lMapSrite.Add(ChompChomp);
         }
 
         public void DrawTexture(GameTime gameTime, SpriteBatch spriteBatch)
