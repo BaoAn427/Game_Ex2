@@ -10,7 +10,7 @@ namespace Game_Ex2
     public class MouseManagement : EntityInvisible
     {
         protected MouseState _PreviousState;
-        protected MouseState _CurrentState;
+        protected MouseState _CurrentState;        
 
 
         public bool Is_LeftClickBegin()

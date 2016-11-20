@@ -14,7 +14,7 @@ namespace Game_Ex2
         //public ContentManager _Content;
 
         private List<EntityVisible> _lMapSrite = new List<EntityVisible>();
-        //private TextureChompChomp _ChompChomp;
+        private TextureChompChomp _ChompChomp;
         private const int _SIDE_SQUARE_MAP = 64;
         private const int _HEIGHT_WATER = 0;
         private const int _HEIGHT_ICE = 122;
@@ -62,8 +62,9 @@ namespace Game_Ex2
             float scale = 1f;
             MapTiling mapTiling = new MapTiling(strBaseMap, 0, 0, _SIDE_SQUARE_MAP, _SIDE_SQUARE_MAP, scale);
             _lMapSrite.Add(mapTiling);
-            TextureChompChomp ChompChomp = new TextureChompChomp(1, 1, 0, 0);
+            TextureChompChomp ChompChomp = new TextureChompChomp(4, 1, 0, 0);
             _lMapSrite.Add(ChompChomp);
+            _ChompChomp = ChompChomp;
         }
 
         public void DrawTexture(GameTime gameTime, SpriteBatch spriteBatch)
@@ -90,6 +91,100 @@ namespace Game_Ex2
         public void ZoomBaseMap(Camera2D camera, Vector2 center, float scaleFactor)
         {
             ((MapTiling)_lMapSrite[0]).Zoom(camera, center, scaleFactor);
+        }
+
+
+        public void MoveToLeft()
+        {
+            _ChompChomp.MoveToLeft();
+        }
+
+        public void MoveToRight()
+        {
+            _ChompChomp.MoveToRight();
+        }
+
+        public void MoveToUp()
+        {
+            _ChompChomp.MoveToUp();
+        }
+
+        public void MoveToDown()
+        {
+            _ChompChomp.MoveToDown();
+        }
+
+
+        public bool IsMovingToLeft(float dest)
+        {
+            return _ChompChomp.IsMovingToLeft(dest);
+        }
+
+        public bool IsMovingToRight(float dest)
+        {
+            return _ChompChomp.IsMovingToRight(dest);
+        }
+
+        public bool IsMovingToUp(float dest)
+        {
+            return _ChompChomp.IsMovingToUp(dest);
+        }
+
+        public bool IsMovingToDown(float dest)
+        {
+            return _ChompChomp.IsMovingToDown(dest);
+        }
+
+
+        public float GetDestination_Left()
+        {
+            return _ChompChomp.GetDestination_Left(_SIDE_SQUARE_MAP * 1);
+        }
+
+        public float GetDestination_Right()
+        {
+            return _ChompChomp.GetDestination_Right(_SIDE_SQUARE_MAP * 1);
+        }
+
+        public float GetDestination_Up()
+        {
+            return _ChompChomp.GetDestination_Up(_SIDE_SQUARE_MAP * 1);
+        }
+
+        public float GetDestination_Down()
+        {
+            return _ChompChomp.GetDestination_Down(_SIDE_SQUARE_MAP * 1);
+        }
+
+
+        public void BeginMoveToLeft()
+        {
+            _ChompChomp.BeginMoveToLeft();
+        }
+
+        public void BeginMoveToRight()
+        {
+            _ChompChomp.BeginMoveToRight();
+        }
+
+        public void BeginMoveToUp()
+        {
+            _ChompChomp.BeginMoveToUp();
+        }
+
+        public void BeginMoveToDown()
+        {
+            _ChompChomp.BeginMoveToDown();
+        }
+
+        public bool ShouldStopMovingHorizontal()
+        {
+            return _ChompChomp.ShouldStopMovingHorizontal(_SIDE_SQUARE_MAP * 1);
+        }
+
+        public bool ShouldStopMovingVertial()
+        {
+            return _ChompChomp.ShouldStopMovingVertical(_SIDE_SQUARE_MAP * 1);
         }
     }
 }

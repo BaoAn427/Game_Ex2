@@ -70,8 +70,36 @@ namespace Game_Ex2
             // TODO: Add your update logic here
             Global.UpdateEntityInvisible(gameTime);
 
+            if (Global.Is_ToLeft() && !Global.Is_MovingToLeft())
+            {
+                Global.BeginMoveToLeft();
+            }
+            else if (Global.Is_MovingToLeft())
+            {
+                Global.MoveToLeft();
+            }
+
+            //if (Global.Is_ToLeft() && !Global.Is_MovingToLeft() && !Global.Is_LockedMove())
+            //{
+            //    Global.LockMove();
+            //    Global.BeginMoveToLeft();
+            //}
+            //else if (Global.Is_MovingToLeft())
+            //{
+            //    Global.MoveToLeft();
+            //}
+
+            //if (Global.Is_ToRight() && !Global.Is_MovingToRight())
+            //{
+            //    Global.BeginMoveToRight();
+            //}
+            //else if (Global.Is_MovingToRight())
+            //{
+            //    Global.MoveToRight();
+            //}
+
             // Start dragging - Start clicking Left Mouse
-            if(Global.Is_LeftMouse_Click_Begin())
+            else if (Global.Is_LeftMouse_Click_Begin())
             {
                 Global.BeginDragging();
                 Global.NotFloatedYet();

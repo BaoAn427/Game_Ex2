@@ -12,6 +12,7 @@ namespace Game_Ex2
     {
         public static ContentManager _Content;
         private static MouseManagement _MouseManagement = new MouseManagement();
+        private static KeyboardManagement _KeyboardManagement = new KeyboardManagement();
         private static TextureManagement _TextureManagement = new TextureManagement();
 
         public static Camera2D _Camera = new Camera2D();
@@ -29,6 +30,23 @@ namespace Game_Ex2
         private static float _ScaleFactor = 1;
         private static float _ScaleFactor_ZoomIn_Ratio = 0.5f;
         private static float _ScaleFactor_ZoomOut_Ratio = 2f;
+        private static float _Destination;
+        private static bool _IsLockedMove = true;
+
+
+        public static bool Is_LockedMove()
+        {
+            return _IsLockedMove;
+        }
+        public static void LockMove()
+        {
+            _IsLockedMove = true;
+        }
+
+        public static void UnlockMove()
+        {
+            _IsLockedMove = false;
+        }
 
         //------------------------------ MOUSE STATE ------------------------------
 
@@ -56,6 +74,108 @@ namespace Game_Ex2
         public static bool Is_Scroll_Down()
         {
             return _MouseManagement.Is_ScrollDown();
+        }
+
+
+        //------------------------------ KEYBOARD STATE ------------------------------
+
+        public static bool Is_ToRight()
+        {
+            return _KeyboardManagement.IsToRight();
+        }
+
+        public static bool Is_ToLeft()
+        {
+            return _KeyboardManagement.IsToLeft();
+        }
+
+        public static bool Is_ToUp()
+        {
+            return _KeyboardManagement.IsToUp();
+        }
+
+        public static bool Is_ToDown()
+        {
+            return _KeyboardManagement.IsToDown();
+        }
+
+
+        //------------------------------ MOVE ------------------------------
+
+        public static bool Should_StopMovingHorizontal()
+        {
+            return _TextureManagement.ShouldStopMovingHorizontal();
+        }
+
+        public static bool Should_StopMovingVertical()
+        {
+            return _TextureManagement.ShouldStopMovingVertial();
+        }
+
+        public static void MoveToLeft()
+        {
+            _TextureManagement.MoveToLeft();
+        }
+
+        public static void MoveToRight()
+        {
+            _TextureManagement.MoveToRight();
+        }
+
+        public static void MoveToUp()
+        {
+            _TextureManagement.MoveToUp();
+        }
+
+        public static void MoveToDown()
+        {
+            _TextureManagement.MoveToDown();
+        }
+
+
+        public static bool Is_MovingToLeft()
+        {
+            return _TextureManagement.IsMovingToLeft(_Destination);
+        }
+
+        public static bool Is_MovingToRight()
+        {
+            return _TextureManagement.IsMovingToRight(_Destination);
+        }
+
+        public static bool Is_MovingToUp()
+        {
+            return _TextureManagement.IsMovingToUp(_Destination);
+        }
+
+        public static bool Is_MovingToDown()
+        {
+            return _TextureManagement.IsMovingToDown(_Destination);
+        }
+
+
+        public static void BeginMoveToLeft()
+        {
+            _TextureManagement.BeginMoveToLeft();
+            _Destination = _TextureManagement.GetDestination_Left();
+        }
+
+        public static void BeginMoveToRight()
+        {
+            _TextureManagement.BeginMoveToRight();
+            _Destination = _TextureManagement.GetDestination_Right();
+        }
+
+        public static void BeginMoveToUp()
+        {
+            _TextureManagement.BeginMoveToUp();
+            _Destination = _TextureManagement.GetDestination_Up();
+        }
+
+        public static void BeginMoveToDown()
+        {
+            _TextureManagement.BeginMoveToDown();
+            _Destination = _TextureManagement.GetDestination_Down();
         }
 
 
@@ -149,6 +269,7 @@ namespace Game_Ex2
         {
             _Camera.Update(gameTime);
             _MouseManagement.Update(gameTime);
+            _KeyboardManagement.Update(gameTime);
         }
 
         public static void UpdateEntityVisible(GameTime gameTime)

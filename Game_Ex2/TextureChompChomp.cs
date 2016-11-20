@@ -15,6 +15,7 @@ namespace Game_Ex2
         protected ModelSprite2D _ToRight = new ModelSprite2D();
         protected ModelSprite2D _ToUp = new ModelSprite2D();
         protected ModelSprite2D _ToDown = new ModelSprite2D();
+        protected ModelSprite2D _CurrentSprite = new ModelSprite2D();
         protected int _Width;
         protected int _Height;
         protected int _Left;
@@ -46,6 +47,7 @@ namespace Game_Ex2
             _ToRight = GenerateSprite("Right", 3);
             _ToUp = GenerateSprite("ComeIn", 3);
             _ToDown = GenerateSprite("ComeOut", 3);
+            _CurrentSprite = _Center;
         }
                
 
@@ -85,20 +87,108 @@ namespace Game_Ex2
 
         public override void Update(GameTime gameTime)
         {
-            _Center.Update(gameTime);
-            _ToLeft.Update(gameTime);
-            _ToRight.Update(gameTime);
-            _ToUp.Update(gameTime);
-            _ToDown.Update(gameTime);
+            _CurrentSprite.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime, object param)
         {
-            _Center.Draw(gameTime, param);
-            _ToLeft.Draw(gameTime, param);
-            _ToRight.Draw(gameTime, param);
-            _ToUp.Draw(gameTime, param);
-            _ToDown.Draw(gameTime, param);
+            _CurrentSprite.Draw(gameTime, param);
+        }
+
+
+        public override void MoveToLeft()
+        {
+            _CurrentSprite.MoveToLeft();
+        }
+
+        public override void MoveToRight()
+        {
+            _CurrentSprite.MoveToRight();
+        }
+
+        public override void MoveToUp()
+        {
+            _CurrentSprite.MoveToUp();
+        }
+
+        public override void MoveToDown()
+        {
+            _CurrentSprite.MoveToDown();
+        }
+        
+
+        public override bool IsMovingToLeft(float dest)
+        {
+            return _ToRight.IsMovingToLeft(dest);
+        }
+
+        public override bool IsMovingToRight(float dest)
+        {
+            return _ToRight.IsMovingToRight(dest);
+        }
+
+        public override bool IsMovingToUp(float dest)
+        {
+            return _ToRight.IsMovingToUp(dest);
+        }
+
+        public override bool IsMovingToDown(float dest)
+        {
+            return _ToRight.IsMovingToDown(dest);
+        }
+
+
+
+        public override float GetDestination_Left(float distance)
+        {
+            return _ToRight.GetDestination_Left(distance);
+        }
+
+        public override float GetDestination_Right(float distance)
+        {
+            return _ToRight.GetDestination_Right(distance);
+        }
+
+        public override float GetDestination_Up(float distance)
+        {
+            return _ToRight.GetDestination_Up(distance);
+        }
+
+        public override float GetDestination_Down(float distance)
+        {
+            return _ToRight.GetDestination_Down(distance);
+        }
+        
+
+
+        public override void BeginMoveToLeft()
+        {
+            _CurrentSprite = _ToLeft;
+        }
+
+        public override void BeginMoveToRight()
+        {
+            _CurrentSprite = _ToRight;
+        }
+
+        public override void BeginMoveToUp()
+        {
+            _CurrentSprite = _ToUp;
+        }
+
+        public override void BeginMoveToDown()
+        {
+            _CurrentSprite = _ToDown;
+        }
+
+        public override bool ShouldStopMovingHorizontal(float dest)
+        {
+            return _CurrentSprite.ShouldStopMovingHorizontal(dest);
+        }
+
+        public override bool ShouldStopMovingVertical(float dest)
+        {
+            return _CurrentSprite.ShouldStopMovingVertical(dest);
         }
     }
 }

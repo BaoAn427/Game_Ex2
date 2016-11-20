@@ -89,5 +89,81 @@ namespace Game_Ex2
             //spriteBatch.Draw(_lTexture[_iTexture], new Vector2(_Left, _Top), null, null, null, 0, null, null, SpriteEffects.None, _Depth);
         }
 
+
+        public void MoveToLeft()
+        {
+            _Left -= 2.0f;
+        }
+
+        public void MoveToRight()
+        {
+            _Left += 2.0f;
+        }
+
+        public void MoveToUp()
+        {
+            _Top -= 2.0f;
+        }
+
+        public void MoveToDown()
+        {
+            _Top += 2.0f;
+        }
+
+
+        public bool IsMovingToLeft(float dest)
+        {
+            bool res = (_Left > dest);
+            if(!res)
+                Global.UnlockMove();
+            return res;
+        }
+
+        public bool IsMovingToRight(float dest)
+        {
+            return (_Left < dest);
+        }
+
+        public bool IsMovingToUp(float dest)
+        {
+            return (_Top > dest);
+        }
+
+        public bool IsMovingToDown(float dest)
+        {
+            return (_Top < dest);
+        }
+
+
+        public float GetDestination_Left(float distance)
+        {
+            return (_Left - distance);
+        }
+
+        public float GetDestination_Right(float distance)
+        {
+            return (_Left + distance);
+        }
+
+        public float GetDestination_Up(float distance)
+        {
+            return (_Top - distance);
+        }
+
+        public float GetDestination_Down(float distance)
+        {
+            return (_Top + distance);
+        }
+
+
+        public bool ShouldStopMovingHorizontal(float dest)
+        {
+            return (_Left == dest);
+        }
+
+        public bool ShouldStopMovingVertical(float dest)
+        {
+            return (_Top == dest);
+        }
     }
 }
