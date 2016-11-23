@@ -96,99 +96,82 @@ namespace Game_Ex2
         }
 
 
+        public override void StopCol(float dest)
+        {
+            _Center.StopCol(dest);
+            _ToLeft.StopCol(dest);
+            _ToRight.StopCol(dest);
+            _ToUp.StopCol(dest);
+            _ToDown.StopCol(dest);
+            _CurrentSprite = _Center;
+        }
+
+        public override void StopRow(float dest)
+        {
+            _Center.StopRow(dest);
+            _ToLeft.StopRow(dest);
+            _ToRight.StopRow(dest);
+            _ToUp.StopRow(dest);
+            _ToDown.StopRow(dest);
+            _CurrentSprite = _Center;
+        }
+
+
         public override void MoveToLeft()
         {
+            _CurrentSprite = _ToLeft;
             _CurrentSprite.MoveToLeft();
         }
 
         public override void MoveToRight()
         {
+            _CurrentSprite = _ToRight;
             _CurrentSprite.MoveToRight();
         }
 
         public override void MoveToUp()
         {
+            _CurrentSprite = _ToUp;
             _CurrentSprite.MoveToUp();
         }
 
         public override void MoveToDown()
         {
+            _CurrentSprite = _ToDown;
             _CurrentSprite.MoveToDown();
         }
-        
 
-        public override bool IsMovingToLeft(float dest)
+
+        public override bool IsReachLeft(float dest)
         {
-            return _ToRight.IsMovingToLeft(dest);
+            return _CurrentSprite.IsReachLeft(dest);
         }
 
-        public override bool IsMovingToRight(float dest)
+        public override bool IsReachRight(float dest)
         {
-            return _ToRight.IsMovingToRight(dest);
+            return _CurrentSprite.IsReachRight(dest);
         }
 
-        public override bool IsMovingToUp(float dest)
+        public override bool IsReachUp(float dest)
         {
-            return _ToRight.IsMovingToUp(dest);
+            return _CurrentSprite.IsReachUp(dest);
         }
 
-        public override bool IsMovingToDown(float dest)
+        public override bool IsReachDown(float dest)
         {
-            return _ToRight.IsMovingToDown(dest);
+            return _CurrentSprite.IsReachDown(dest);
         }
 
 
-
-        public override float GetDestination_Left(float distance)
+        public override float GetDestionationRow(float dest)
         {
-            return _ToRight.GetDestination_Left(distance);
+            return _CurrentSprite.GetDestionationRow(dest);
         }
 
-        public override float GetDestination_Right(float distance)
+        public override float GetDestionationCol(float dest)
         {
-            return _ToRight.GetDestination_Right(distance);
-        }
-
-        public override float GetDestination_Up(float distance)
-        {
-            return _ToRight.GetDestination_Up(distance);
-        }
-
-        public override float GetDestination_Down(float distance)
-        {
-            return _ToRight.GetDestination_Down(distance);
+            return _CurrentSprite.GetDestionationCol(dest);
         }
         
-
-
-        public override void BeginMoveToLeft()
-        {
-            _CurrentSprite = _ToLeft;
-        }
-
-        public override void BeginMoveToRight()
-        {
-            _CurrentSprite = _ToRight;
-        }
-
-        public override void BeginMoveToUp()
-        {
-            _CurrentSprite = _ToUp;
-        }
-
-        public override void BeginMoveToDown()
-        {
-            _CurrentSprite = _ToDown;
-        }
-
-        public override bool ShouldStopMovingHorizontal(float dest)
-        {
-            return _CurrentSprite.ShouldStopMovingHorizontal(dest);
-        }
-
-        public override bool ShouldStopMovingVertical(float dest)
-        {
-            return _CurrentSprite.ShouldStopMovingVertical(dest);
-        }
     }
 }

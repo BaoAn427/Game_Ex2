@@ -21,6 +21,8 @@ namespace Game_Ex2
 
         private static Vector2 _DifferenceVector;
         private static Vector2 _BackupDifferenceVector;
+        private static float _DirectionToMove;
+        private static float _Destination;
 
         private static Vector2 _Velocity_Zero;
         private static Vector2 _Accelerator;
@@ -30,23 +32,13 @@ namespace Game_Ex2
         private static float _ScaleFactor = 1;
         private static float _ScaleFactor_ZoomIn_Ratio = 0.5f;
         private static float _ScaleFactor_ZoomOut_Ratio = 2f;
-        private static float _Destination;
-        private static bool _IsLockedMove = true;
 
+        private static float _TO_STAND = 0;
+        private static float _TO_LEFT = 1;
+        private static float _TO_RIGHT = 2;
+        private static float _TO_UP = 3;
+        private static float _TO_DOWN = 4;    
 
-        public static bool Is_LockedMove()
-        {
-            return _IsLockedMove;
-        }
-        public static void LockMove()
-        {
-            _IsLockedMove = true;
-        }
-
-        public static void UnlockMove()
-        {
-            _IsLockedMove = false;
-        }
 
         //------------------------------ MOUSE STATE ------------------------------
 
@@ -77,40 +69,100 @@ namespace Game_Ex2
         }
 
 
-        //------------------------------ KEYBOARD STATE ------------------------------
+        //------------------------------ MOVE ------------------------------    
 
-        public static bool Is_ToRight()
+        public static bool Is_MovingToLeft()
         {
-            return _KeyboardManagement.IsToRight();
+            return (_DirectionToMove == _TO_LEFT);
         }
 
-        public static bool Is_ToLeft()
+        public static bool Is_MovingToRight()
+        {
+            return (_DirectionToMove == _TO_RIGHT);
+        }
+
+        public static bool Is_MovingToUp()
+        {
+            return (_DirectionToMove == _TO_UP);
+        }
+
+        public static bool Is_MovingToDown()
+        {
+            return (_DirectionToMove == _TO_DOWN);
+        }
+
+        public static bool Is_Standing()
+        {
+            return (_DirectionToMove == _TO_STAND);
+        }
+
+
+        public static bool Is_ReachLeft()
+        {
+            return _TextureManagement.IsReachLeft(_Destination);
+        }
+
+        public static bool Is_ReachRight()
+        {
+            return _TextureManagement.IsReachRight(_Destination);
+        }
+
+        public static bool Is_ReachUp()
+        {
+            return _TextureManagement.IsReachUp(_Destination);
+        }
+
+        public static bool Is_ReachDown()
+        {
+            return _TextureManagement.IsReachDown(_Destination);
+        }
+
+
+        public static bool Is_ControlToLeft()
         {
             return _KeyboardManagement.IsToLeft();
         }
 
-        public static bool Is_ToUp()
+        public static bool Is_ControlToRight()
+        {
+            return _KeyboardManagement.IsToRight();
+        }
+
+        public static bool Is_ControlToUp()
         {
             return _KeyboardManagement.IsToUp();
         }
 
-        public static bool Is_ToDown()
+        public static bool Is_ControlToDown()
         {
             return _KeyboardManagement.IsToDown();
         }
 
 
-        //------------------------------ MOVE ------------------------------
-
-        public static bool Should_StopMovingHorizontal()
+        public static void BeginMovingToLeft()
         {
-            return _TextureManagement.ShouldStopMovingHorizontal();
+            _DirectionToMove = _TO_LEFT;
+            _Destination = _TextureManagement.GetDestionationLeft();
         }
 
-        public static bool Should_StopMovingVertical()
+        public static void BeginMovingToRight()
         {
-            return _TextureManagement.ShouldStopMovingVertial();
+            _DirectionToMove = _TO_RIGHT;
+            _Destination = _TextureManagement.GetDestionationRight();
         }
+
+        public static void BeginMovingToUp()
+        {
+            _DirectionToMove = _TO_UP;
+            _Destination = _TextureManagement.GetDestionationUp();
+        }
+
+        public static void BeginMovingToDown()
+        {
+            _DirectionToMove = _TO_DOWN;
+            _Destination = _TextureManagement.GetDestionationDown();
+        }
+
 
         public static void MoveToLeft()
         {
@@ -132,52 +184,17 @@ namespace Game_Ex2
             _TextureManagement.MoveToDown();
         }
 
-
-        public static bool Is_MovingToLeft()
+        public static void EndMovingInCol()
         {
-            return _TextureManagement.IsMovingToLeft(_Destination);
+            _DirectionToMove = _TO_STAND;
+            _TextureManagement.StopCol(_Destination);
         }
 
-        public static bool Is_MovingToRight()
+        public static void EndMovingInRow()
         {
-            return _TextureManagement.IsMovingToRight(_Destination);
+            _DirectionToMove = _TO_STAND;
+            _TextureManagement.StopRow(_Destination);
         }
-
-        public static bool Is_MovingToUp()
-        {
-            return _TextureManagement.IsMovingToUp(_Destination);
-        }
-
-        public static bool Is_MovingToDown()
-        {
-            return _TextureManagement.IsMovingToDown(_Destination);
-        }
-
-
-        public static void BeginMoveToLeft()
-        {
-            _TextureManagement.BeginMoveToLeft();
-            _Destination = _TextureManagement.GetDestination_Left();
-        }
-
-        public static void BeginMoveToRight()
-        {
-            _TextureManagement.BeginMoveToRight();
-            _Destination = _TextureManagement.GetDestination_Right();
-        }
-
-        public static void BeginMoveToUp()
-        {
-            _TextureManagement.BeginMoveToUp();
-            _Destination = _TextureManagement.GetDestination_Up();
-        }
-
-        public static void BeginMoveToDown()
-        {
-            _TextureManagement.BeginMoveToDown();
-            _Destination = _TextureManagement.GetDestination_Down();
-        }
-
 
         //------------------------------ DRAG ------------------------------
 

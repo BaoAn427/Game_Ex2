@@ -93,6 +93,48 @@ namespace Game_Ex2
             ((MapTiling)_lMapSrite[0]).Zoom(camera, center, scaleFactor);
         }
 
+        
+        public bool IsReachLeft(float dest)
+        {
+            return _ChompChomp.IsReachLeft(dest);
+        }
+
+        public bool IsReachRight(float dest)
+        {
+            return _ChompChomp.IsReachRight(dest);
+        }
+
+        public bool IsReachUp(float dest)
+        {
+            return _ChompChomp.IsReachUp(dest);
+        }
+
+        public bool IsReachDown(float dest)
+        {
+            return _ChompChomp.IsReachDown(dest);
+        }
+
+
+        public float GetDestionationLeft()
+        {
+            return _ChompChomp.GetDestionationRow(-(_SIDE_SQUARE_MAP * 1));
+        }
+
+        public float GetDestionationRight()
+        {
+            return _ChompChomp.GetDestionationRow(_SIDE_SQUARE_MAP * 1);
+        }
+
+        public float GetDestionationUp()
+        {
+            return _ChompChomp.GetDestionationCol(-(_SIDE_SQUARE_MAP * 1));
+        }
+
+        public float GetDestionationDown()
+        {
+            return _ChompChomp.GetDestionationCol(_SIDE_SQUARE_MAP * 1);
+        }
+
 
         public void MoveToLeft()
         {
@@ -115,76 +157,14 @@ namespace Game_Ex2
         }
 
 
-        public bool IsMovingToLeft(float dest)
+        public void StopCol(float dest)
         {
-            return _ChompChomp.IsMovingToLeft(dest);
+            _ChompChomp.StopCol(dest);
         }
 
-        public bool IsMovingToRight(float dest)
+        public void StopRow(float dest)
         {
-            return _ChompChomp.IsMovingToRight(dest);
-        }
-
-        public bool IsMovingToUp(float dest)
-        {
-            return _ChompChomp.IsMovingToUp(dest);
-        }
-
-        public bool IsMovingToDown(float dest)
-        {
-            return _ChompChomp.IsMovingToDown(dest);
-        }
-
-
-        public float GetDestination_Left()
-        {
-            return _ChompChomp.GetDestination_Left(_SIDE_SQUARE_MAP * 1);
-        }
-
-        public float GetDestination_Right()
-        {
-            return _ChompChomp.GetDestination_Right(_SIDE_SQUARE_MAP * 1);
-        }
-
-        public float GetDestination_Up()
-        {
-            return _ChompChomp.GetDestination_Up(_SIDE_SQUARE_MAP * 1);
-        }
-
-        public float GetDestination_Down()
-        {
-            return _ChompChomp.GetDestination_Down(_SIDE_SQUARE_MAP * 1);
-        }
-
-
-        public void BeginMoveToLeft()
-        {
-            _ChompChomp.BeginMoveToLeft();
-        }
-
-        public void BeginMoveToRight()
-        {
-            _ChompChomp.BeginMoveToRight();
-        }
-
-        public void BeginMoveToUp()
-        {
-            _ChompChomp.BeginMoveToUp();
-        }
-
-        public void BeginMoveToDown()
-        {
-            _ChompChomp.BeginMoveToDown();
-        }
-
-        public bool ShouldStopMovingHorizontal()
-        {
-            return _ChompChomp.ShouldStopMovingHorizontal(_SIDE_SQUARE_MAP * 1);
-        }
-
-        public bool ShouldStopMovingVertial()
-        {
-            return _ChompChomp.ShouldStopMovingVertical(_SIDE_SQUARE_MAP * 1);
+            _ChompChomp.StopRow(dest);
         }
     }
 }

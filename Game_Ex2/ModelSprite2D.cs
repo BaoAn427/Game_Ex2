@@ -19,7 +19,8 @@ namespace Game_Ex2
         private float _Height;
         private float _Depth;
         private float _Scale;
-        private float _DELAY = 120;
+        private float _DELAY = 80;
+        private float _DELTA_TO_MOVE = 0.8f;
 
 
         public ModelSprite2D() { }
@@ -87,83 +88,70 @@ namespace Game_Ex2
             SpriteBatch spriteBatch = (SpriteBatch)helper;
             spriteBatch.Draw(_lTexture[_iTexture], new Vector2(_Left, _Top), null, Color.White, 0f, Vector2.Zero, _Scale, SpriteEffects.None, _Depth);
             //spriteBatch.Draw(_lTexture[_iTexture], new Vector2(_Left, _Top), null, null, null, 0, null, null, SpriteEffects.None, _Depth);
-        }
-
+        }       
+       
 
         public void MoveToLeft()
         {
-            _Left -= 2.0f;
+            _Left -= _DELTA_TO_MOVE;
         }
 
         public void MoveToRight()
         {
-            _Left += 2.0f;
+            _Left += _DELTA_TO_MOVE;
         }
 
         public void MoveToUp()
         {
-            _Top -= 2.0f;
+            _Top -= _DELTA_TO_MOVE;
         }
 
         public void MoveToDown()
         {
-            _Top += 2.0f;
+            _Top += _DELTA_TO_MOVE;
         }
 
 
-        public bool IsMovingToLeft(float dest)
+        public void StopCol(float dest)
         {
-            bool res = (_Left > dest);
-            if(!res)
-                Global.UnlockMove();
-            return res;
+            _Left = dest;
         }
 
-        public bool IsMovingToRight(float dest)
+        public void StopRow(float dest)
         {
-            return (_Left < dest);
-        }
-
-        public bool IsMovingToUp(float dest)
-        {
-            return (_Top > dest);
-        }
-
-        public bool IsMovingToDown(float dest)
-        {
-            return (_Top < dest);
+            _Top = dest;
         }
 
 
-        public float GetDestination_Left(float distance)
+        public bool IsReachLeft(float dest)
         {
-            return (_Left - distance);
+            return (_Left <= dest);
         }
 
-        public float GetDestination_Right(float distance)
+        public bool IsReachRight(float dest)
         {
-            return (_Left + distance);
+            return (_Left >= dest);
         }
 
-        public float GetDestination_Up(float distance)
+        public bool IsReachUp(float dest)
         {
-            return (_Top - distance);
+            return (_Top <= dest);
         }
 
-        public float GetDestination_Down(float distance)
+        public bool IsReachDown(float dest)
         {
-            return (_Top + distance);
+            return (_Top >= dest);
         }
 
 
-        public bool ShouldStopMovingHorizontal(float dest)
+        public float GetDestionationRow(float dest)
         {
-            return (_Left == dest);
+            return (_Left + dest);
         }
 
-        public bool ShouldStopMovingVertical(float dest)
+        public float GetDestionationCol(float dest)
         {
-            return (_Top == dest);
+            return (_Top + dest);
         }
     }
 }

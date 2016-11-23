@@ -70,36 +70,8 @@ namespace Game_Ex2
             // TODO: Add your update logic here
             Global.UpdateEntityInvisible(gameTime);
 
-            if (Global.Is_ToLeft() && !Global.Is_MovingToLeft())
-            {
-                Global.BeginMoveToLeft();
-            }
-            else if (Global.Is_MovingToLeft())
-            {
-                Global.MoveToLeft();
-            }
-
-            //if (Global.Is_ToLeft() && !Global.Is_MovingToLeft() && !Global.Is_LockedMove())
-            //{
-            //    Global.LockMove();
-            //    Global.BeginMoveToLeft();
-            //}
-            //else if (Global.Is_MovingToLeft())
-            //{
-            //    Global.MoveToLeft();
-            //}
-
-            //if (Global.Is_ToRight() && !Global.Is_MovingToRight())
-            //{
-            //    Global.BeginMoveToRight();
-            //}
-            //else if (Global.Is_MovingToRight())
-            //{
-            //    Global.MoveToRight();
-            //}
-
             // Start dragging - Start clicking Left Mouse
-            else if (Global.Is_LeftMouse_Click_Begin())
+            if (Global.Is_LeftMouse_Click_Begin())
             {
                 Global.BeginDragging();
                 Global.NotFloatedYet();
@@ -129,6 +101,74 @@ namespace Game_Ex2
             else if(Global.Is_Scroll_Down())
             {
                 Global.ZoomIn();
+            }
+
+            // Move to Left
+            else if (Global.Is_ControlToLeft())
+            {
+                Global.BeginMovingToLeft();
+            }
+            else if (Global.Is_MovingToLeft())
+            {
+                if (!Global.Is_ReachLeft())
+                {
+                    Global.MoveToLeft();
+                }
+                else
+                {
+                    Global.EndMovingInCol();
+                }
+            }
+
+            // Move to Right
+            else if (Global.Is_ControlToRight())
+            {
+                Global.BeginMovingToRight();
+            }
+            else if (Global.Is_MovingToRight())
+            {
+                if (!Global.Is_ReachRight())
+                {
+                    Global.MoveToRight();
+                }
+                else
+                {
+                    Global.EndMovingInCol();
+                }
+            }
+
+            // Move to Up
+            else if (Global.Is_ControlToUp())
+            {
+                Global.BeginMovingToUp();
+            }
+            else if (Global.Is_MovingToUp())
+            {
+                if (!Global.Is_ReachUp())
+                {
+                    Global.MoveToUp();
+                }
+                else
+                {
+                    Global.EndMovingInRow();
+                }
+            }
+
+            // Move to Down
+            else if (Global.Is_ControlToDown())
+            {
+                Global.BeginMovingToDown();
+            }
+            else if (Global.Is_MovingToDown())
+            {
+                if (!Global.Is_ReachDown())
+                {
+                    Global.MoveToDown();
+                }
+                else
+                {
+                    Global.EndMovingInRow();
+                }
             }
 
             Global.UpdateEntityVisible(gameTime);

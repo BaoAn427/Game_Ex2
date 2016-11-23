@@ -19,22 +19,15 @@ namespace Game_Ex2
         public virtual void MoveToUp() { }
         public virtual void MoveToDown() { }
 
-        public virtual bool IsMovingToLeft(float dest) { return false; }
-        public virtual bool IsMovingToRight(float dest) { return false; }
-        public virtual bool IsMovingToUp(float dest) { return false; }
-        public virtual bool IsMovingToDown(float dest) { return false; }
+        public virtual void StopCol(float dest) { }
+        public virtual void StopRow(float dest) { }
 
-        public virtual float GetDestination_Left(float distance) { return distance; }
-        public virtual float GetDestination_Right(float distance) { return distance; }
-        public virtual float GetDestination_Up(float distance) { return distance; }
-        public virtual float GetDestination_Down(float distance) { return distance; }
+        public virtual bool IsReachLeft(float dest) { return false; }
+        public virtual bool IsReachRight(float dest) { return false; }
+        public virtual bool IsReachUp(float dest) { return false; }
+        public virtual bool IsReachDown(float dest) { return false; }
 
-        public virtual void BeginMoveToLeft() { }
-        public virtual void BeginMoveToRight() { }
-        public virtual void BeginMoveToUp() { }
-        public virtual void BeginMoveToDown() { }
-
-        public virtual bool ShouldStopMovingHorizontal(float dest) { return false; }
-        public virtual bool ShouldStopMovingVertical(float dest) { return false; }
+        public virtual float GetDestionationRow(float dest) { return 0; }
+        public virtual float GetDestionationCol(float dest) { return 0; }
     }
 }
