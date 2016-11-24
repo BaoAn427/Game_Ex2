@@ -42,3 +42,4 @@ E:\SUBJECTS\NAM4_HK1\GAME\Assignment\Game_Ex2\Game_Ex2\bin\Windows\Debug\Content
 E:\SUBJECTS\NAM4_HK1\GAME\Assignment\Game_Ex2\Game_Ex2\bin\Windows\Debug\Content\ChompChomp_Right_02.xnb
 E:\SUBJECTS\NAM4_HK1\GAME\Assignment\Game_Ex2\Game_Ex2\bin\Windows\Debug\Content\ChompChomp_Right_03.xnb
 E:\SUBJECTS\NAM4_HK1\GAME\Assignment\Game_Ex2\Game_Ex2\bin\Windows\Debug\Content\BaseMap02.xnb
+E:\SUBJECTS\NAM4_HK1\GAME\Assignment\Game_Ex2\Game_Ex2\bin\Windows\Debug\Content\SpriteFont.xnb

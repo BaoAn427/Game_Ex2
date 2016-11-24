@@ -19,8 +19,8 @@ namespace Game_Ex2
         private float _Height;
         private float _Depth;
         private float _Scale;
-        private float _DELAY = 80;
-        private float _DELTA_TO_MOVE = 1.0f;
+        private float _DELAY = 60;
+        private float _DELTA_TO_MOVE = 2.0f;
 
 
         public ModelSprite2D() { }

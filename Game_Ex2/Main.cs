@@ -12,6 +12,9 @@ namespace Game_Ex2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        private SpriteFont _Font;
+        private int score = 0;
+
         public Main()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,6 +49,7 @@ namespace Game_Ex2
 
             Global._Content = this.Content;
             Global.LoadTilingMap();
+            _Font = Content.Load<SpriteFont>("SpriteFont");
         }
 
         /// <summary>
@@ -187,6 +191,7 @@ namespace Game_Ex2
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Global._Camera.WVP);
             //Global._TextureManagement.DrawTexture(gameTime, spriteBatch);
             Global.Draw(gameTime, spriteBatch);
+            spriteBatch.DrawString(_Font, "Use arrow buttons on Keyboard to move Chomp Chomp", new Vector2(0, 0), Color.Black);
             spriteBatch.End();
 
             base.Draw(gameTime);
