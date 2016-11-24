@@ -104,7 +104,7 @@ namespace Game_Ex2
             }
 
             // Move to Left
-            else if (Global.Is_ControlToLeft())
+            else if (Global.Is_ControlToLeft() && Global.Is_Standing())
             {
                 Global.BeginMovingToLeft();
             }
@@ -121,7 +121,7 @@ namespace Game_Ex2
             }
 
             // Move to Right
-            else if (Global.Is_ControlToRight())
+            else if (Global.Is_ControlToRight() && Global.Is_Standing())
             {
                 Global.BeginMovingToRight();
             }
@@ -138,7 +138,7 @@ namespace Game_Ex2
             }
 
             // Move to Up
-            else if (Global.Is_ControlToUp())
+            else if (Global.Is_ControlToUp() && Global.Is_Standing())
             {
                 Global.BeginMovingToUp();
             }
@@ -155,7 +155,7 @@ namespace Game_Ex2
             }
 
             // Move to Down
-            else if (Global.Is_ControlToDown())
+            else if (Global.Is_ControlToDown() && Global.Is_Standing())
             {
                 Global.BeginMovingToDown();
             }
